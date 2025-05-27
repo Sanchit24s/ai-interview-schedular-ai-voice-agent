@@ -8,7 +8,7 @@ function DashboardLayout({ children }) {
         <div>
             <Provider>
                 <DashboardProvider>
-                    <div className='p-10'>
+                    <div>
                         {children}
                     </div>
                 </DashboardProvider>
