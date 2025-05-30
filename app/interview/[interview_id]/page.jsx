@@ -11,7 +11,6 @@ import { toast } from "sonner";
 
 function Interview() {
     const { interview_id } = useParams();
-    console.log(interview_id);
     const [interviewData, setInterviewData] = useState();
     const [userName, setUserName] = useState();
     const [loading, setLoading] = useState(false);
