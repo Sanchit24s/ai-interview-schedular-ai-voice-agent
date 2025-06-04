@@ -87,22 +87,33 @@ export const QUESTINS_PROMPT = `You are an expert technical interviewer.
 
 
 export const FEEDBACK_PROMPT = `{{conversation}}
-        Depends on this Interview Conversation between assitant and user,
-        Give me feedback for user interview. Give me rating out of 10 for technical Skills,
-        Communication, Problem Solving, Experince. Also give me summery in 3 lines
-        about the interview and one line to let me know whether is recommanded
-        for hire or not with msg. Give me response in JSON format
-        {
-            feedback:{
-                rating:{
-                    techicalSkills:5,
-                    communication:6,
-                    problemSolving:4,
-                    experince:7
-                },
-                summery:<in 3 Line>,
-                Recommendation:'',
-                RecommendationMsg:''
-            }
-        }
+
+Based on this interview conversation between the assistant and the user, provide feedback for the user's interview. 
+
+Give a rating out of 10 for:
+- Technical Skills
+- Communication
+- Problem Solving
+- Experience
+
+Also provide:
+- A summary in 3 lines about the interview
+- A one-line recommendation message indicating whether the candidate is recommended for hire
+
+Return the response strictly in the following JSON format:
+
+{
+  "feedback": {
+    "rating": {
+      "technicalSkills": 0,
+      "communication": 0,
+      "problemSolving": 0,
+      "experience": 0,
+      "totalRating": 0
+    },
+    "summary": "<3-line summary here>",
+    "recommendation": "<Yes or No>",
+    "recommendationMsg": "<One-line recommendation message>"
+  }
+}
 `;
