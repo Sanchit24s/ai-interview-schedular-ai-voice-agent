@@ -54,6 +54,14 @@ function QuestionList({ formData, onCreateLink }) {
             ])
             .select();
 
+        // update user credits
+
+        const updateUser = await supabase
+            .from("Users")
+            .update({ credits: Number(user?.credits) - 1 })
+            .eq("email", user?.email)
+            .select();
+
         setSaveLoading(false);
 
         onCreateLink(interview_id);
@@ -82,7 +90,8 @@ function QuestionList({ formData, onCreateLink }) {
 
             <div className="flex justify-end mt-10">
                 <Button onClick={() => onFinish()} disabled={saveLoading}>
-                    {saveLoading && <Loader2 className="animate-spin" />} Create Interview Link & Finish
+                    {saveLoading && <Loader2 className="animate-spin" />} Create Interview
+                    Link & Finish
                 </Button>
             </div>
         </div>
